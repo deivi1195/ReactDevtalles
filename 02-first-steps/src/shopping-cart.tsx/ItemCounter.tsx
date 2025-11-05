@@ -14,10 +14,11 @@ export const ItemCounter = ({ productName, quantity = 1 }: Props) => {
   const [count, setCount] = useState(quantity);
 
   const handleAdd = () => {
+    console.log('Hola mundo desde ItemCounter')
     setCount(count + 1);
   };
   const handleSubtract = () => {
-    if (count == 0) return;
+    if (count === 1) return;
     setCount(count - 1);
   };
 
@@ -45,7 +46,7 @@ export const ItemCounter = ({ productName, quantity = 1 }: Props) => {
       </span>
       <button onClick={handleAdd}>+1</button>
       <span>{count}</span>
-      <button onClick={handleSubtract}>-1</button>
+      <button onClick={handleSubtract} data-testid="decrement-button">-1</button>
       <button onClick={handleReset}>Reset</button>
     </section>
   );
